@@ -9,7 +9,7 @@ from webdriver_manager.utils import ChromeType
 class EngineTest:
     @mark.integration
     @mark.ui
-    def test_engine_functions_as_expected(self):
+    def test_can_navigate_to_playwright_docs(self):
         c = Options()
         # passing headless parameter
         c.add_argument("--headless")
