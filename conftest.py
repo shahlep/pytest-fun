@@ -17,7 +17,7 @@ def chrome_browser():
     c.add_argument("--headless")
     browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),
                                options=c)
-    return browser
+    yield browser
 
 
 @fixture(scope='function')
@@ -26,4 +26,4 @@ def firefox_browser():
     # passing headless parameter
     c.add_argument("--headless")
     browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=c)
-    return browser
+    yield browser
