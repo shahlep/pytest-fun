@@ -16,7 +16,7 @@ def chrome_browser():
     c = Options()
     # passing headless parameter
     c.add_argument("--headless")
-    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()),
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),
                                options=c)
     return browser
 
@@ -44,5 +44,5 @@ def brave_browser():
     c = Options()
     # passing headless parameter
     c.add_argument("--headless")
-    browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()),options=c)
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()), options=c)
     yield browser
