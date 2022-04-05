@@ -46,3 +46,11 @@ def brave_browser():
     c.add_argument("--headless")
     browser = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()), options=c)
     yield browser
+
+
+@fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "ignore_https_errors": True
+    }
