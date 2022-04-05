@@ -21,7 +21,7 @@ def chrome_browser():
     return browser
 
 
-@fixture(scope='function')
+@fixture(scope='session')
 def firefox_browser():
     c = Options()
     # passing headless parameter
